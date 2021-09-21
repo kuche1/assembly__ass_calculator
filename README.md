@@ -1,7 +1,7 @@
 # assembly__shit_calculator
 
-bash
+bash \
 as -o res.o calculate.s && ld res.o && ./a.out ; echo ~$? 
 
-fish
+fish \
 as -o res.o calculate.s && ld res.o && ./a.out ; echo ~$status 
