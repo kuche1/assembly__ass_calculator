@@ -1,4 +1,6 @@
 
+// https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf
+
 // TODO
 //		make chars into 1 byte (as they are) and not 8
 //		fix the negative numbers
@@ -97,7 +99,7 @@ _start:
 
 ERR_BAD_OPERATOR = 1
 ERR_DIVISION_BY_ZERO = 2
-ERR_BRUH_MOMENT = 3
+ERR_INT_AFTER_BRACKET = 3
 
 // %rax - the character that marks the end of the equasion
 main:
@@ -174,9 +176,9 @@ main:
 	call fn_read_int
 	mov $0, %rcx
 	cmp %rcx, %rax
-	jnz main__no_a_bruh_moment
+	jz main__no_a_bruh_moment
 
-	mov $ERR_BRUH_MOMENT, %eax
+	mov $ERR_INT_AFTER_BRACKET, %eax
 	jmp main__ret
 	
 	main__no_a_bruh_moment:
@@ -799,6 +801,6 @@ err_to_str:
 	.ascii "No error"
 	.ascii "Bad oper"
 	.ascii "Div by 0"
-	.ascii "Bruh mnt"
+	.ascii "INTaftr("
 
 .globl  _start
